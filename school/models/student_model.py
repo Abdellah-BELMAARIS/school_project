@@ -1,7 +1,5 @@
 from sqlalchemy import ForeignKey
 from school import db
-
-
 from datetime import datetime, timezone
 
 
@@ -21,7 +19,8 @@ class StudentDB(db.Model):
     student_id = db.Column(db.String(50), unique=True, nullable=False)
 
     created_at = db.Column(
-        db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc)
     )
     updated_at = db.Column(
         db.DateTime(timezone=True),
@@ -35,4 +34,6 @@ class StudentDB(db.Model):
     courses = db.relationship(
         "CourseDB", secondary="student_course", back_populates="students"
     )
-    groups = db.relationship("GroupDB", secondary="group_student", back_populates="students")
+    groups = db.relationship(
+        "GroupDB", secondary="group_student", back_populates="students"
+    )
