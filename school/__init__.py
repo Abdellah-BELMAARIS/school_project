@@ -4,14 +4,17 @@ from flask import Flask
 from os import path
 
 db: SQLAlchemy = SQLAlchemy()
-DB_NAME: str = "school.db"
 alembic: Alembic = Alembic()
+
+DB_NAME: str = "school.db"
 
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "hjshjhdjah kjshkjdhjs"
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
+
     db.init_app(app)
+    alembic.init_app(app)
 
     from .views import bp_home, bp_about
 
@@ -20,8 +23,8 @@ def create_app():
 
     from .models import StudentDB, ParentDB, TeacherDB, CourseDB, GroupDB, PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
 
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
 
 
     return app
