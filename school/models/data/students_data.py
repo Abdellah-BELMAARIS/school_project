@@ -1,10 +1,10 @@
 from datetime import date
 from school import db
-from models import StudentDB
+from school.models.student_model import StudentDB
 
 
 student1 = StudentDB(
-    first_name="Abdellh",
+    first_name="Abdellah",
     last_name="BELMAARIS",
     birthday=date(2010, 7, 19),
     email="obaid@gmail.com",
