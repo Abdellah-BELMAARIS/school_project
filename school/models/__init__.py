@@ -1,4 +1,4 @@
-from .school_class_model import PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
+from .class_model import PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
 from .course_model import CourseDB
 from .student_model import StudentDB
 from .teacher_model import TeacherDB
