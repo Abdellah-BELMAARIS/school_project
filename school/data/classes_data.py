@@ -1,7 +1,7 @@
 from models.class_model import PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
 
 
-class1 = PrimaryClassDB(
+primary_class = PrimaryClassDB(
     grade1="first grade",
     grade2="second grade",
     grade3="third grade",
@@ -10,13 +10,13 @@ class1 = PrimaryClassDB(
     grade6="sixth grade",
 )
 
-class2 = CollegeClassDB(
+college_class = CollegeClassDB(
     grade1="first grade",
     grade2="second grade",
     grade3="third grade",
 )
 
-class3 = HighSchoolClassDB(
+high_school_class = HighSchoolClassDB(
     grade1="first grade",
     grade2="second grade",
     grade3="third grade",
