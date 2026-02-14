@@ -8,6 +8,7 @@ alembic: Alembic = Alembic()
 
 DB_NAME: str = "school.db"
 
+
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "hjshjhdjah kjshkjdhjs"
@@ -21,11 +22,19 @@ def create_app():
     app.register_blueprint(bp_home)
     app.register_blueprint(bp_about)
 
-    from .models import StudentDB, ParentDB, TeacherDB, CourseDB, GroupDB, PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
+    from .models import (
+        StudentDB,
+        ParentDB,
+        TeacherDB,
+        CourseDB,
+        GroupDB,
+        PrimaryClassDB,
+        CollegeClassDB,
+        HighSchoolClassDB,
+    )
 
     # with app.app_context():
     #     db.create_all()
-
 
     return app
 
@@ -35,4 +44,3 @@ def create_database(app):
         with app.app_context():
             db.create_all()
         print("Created Database!")
-

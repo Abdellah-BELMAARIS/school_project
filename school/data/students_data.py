@@ -1,5 +1,4 @@
 from datetime import date
-from school import db
 from models.student_model import StudentDB
 
 
