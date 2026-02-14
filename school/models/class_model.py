@@ -25,7 +25,7 @@ class SchoolClassDB(db.Model):
     groups = db.relationship("GroupDB", back_populates="school_class")
     teachers = db.relationship("TeacherDB", back_populates="school_class")
     courses = db.relationship(
-        "CourseDB", secondary="school_class_course", back_populates="school_classes"
+        "CourseDB", secondary="school_class_course", back_populates="classes"
     )
 
 
@@ -33,7 +33,6 @@ class PrimaryClassDB(SchoolClassDB):
     __tablename__ = "primary_classes"
 
     id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
-    grade = db.Column(db.String(100), nullable=False)
 
     __mapper_args__ = {
         "polymorphic_identity": "primary",
@@ -44,7 +43,7 @@ class CollegeClassDB(SchoolClassDB):
     __tablename__ = "college_classes"
 
     id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
-    grade = db.Column(db.String(100), nullable=False)
+
 
     __mapper_args__ = {
         "polymorphic_identity": "college",
@@ -55,7 +54,6 @@ class HighSchoolClassDB(SchoolClassDB):
     __tablename__ = "high_school_classes"
 
     id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
-    grade = db.Column(db.String(100), nullable=False)
 
     __mapper_args__ = {
         "polymorphic_identity": "high_school",

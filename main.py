@@ -1,6 +1,7 @@
 from school import create_app, db
 from school.data.classes_data import primary_class, college_class, high_school_class
 
+
 app = create_app()
 
 with app.app_context():
