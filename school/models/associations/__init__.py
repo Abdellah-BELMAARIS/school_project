@@ -1,13 +1,14 @@
-from associations import students_courses
-from associations import teachers_courses
-from associations import school_class_course
-from associations import students_groupes
-from associations import groups_teacher
+from .students_courses import student_course
+from .teachers_courses import teacher_course
+from .school_class_course import school_class_course
+from .groups_teacher import group_teacher
+from .students_groupes import student_group
+
 
 __all__ = [
-    "students_courses",
-    "teachers_courses",
+    "student_course",
+    "teacher_course",
     "school_class_course",
-    "students_groupes",
-    "groups_teacher",
+    "group_teacher",
+    "student_group"
 ]

@@ -31,8 +31,8 @@ class StudentDB(db.Model):
     parent = db.relationship("ParentDB", back_populates="students")
     school_class = db.relationship("SchoolClassDB", back_populates="students")
 
-    courses = db.relationship(
-        "CourseDB", secondary="student_course", back_populates="students"
+    class_courses = db.relationship(
+        "CourseDB", secondary="student_course", back_populates="class_courses"
     )
     groups = db.relationship(
         "GroupDB", secondary="group_student", back_populates="students"

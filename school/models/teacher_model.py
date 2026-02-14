@@ -31,6 +31,6 @@ class TeacherDB(db.Model):
     groups = db.relationship(
         "GroupDB", secondary="group_teacher", back_populates="teachers"
     )
-    courses = db.relationship(
+    class_courses = db.relationship(
         "CourseDB", secondary="teacher_course", back_populates="teachers"
     )

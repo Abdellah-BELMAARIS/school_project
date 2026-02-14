@@ -1,4 +1,5 @@
 from school import create_app, db
+from school.models.associations import school_class_course
 from school.data.classes_data import primary_class, college_class, high_school_class
 
 

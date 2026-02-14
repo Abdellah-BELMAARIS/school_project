@@ -26,12 +26,12 @@ class CourseDB(db.Model):
     )
 
     students = db.relationship(
-        "StudentDB", secondary="student_course", back_populates="courses"
+        "StudentDB", secondary="student_course", back_populates="class_courses"
     )
     teachers = db.relationship(
-        "TeacherDB", secondary="teacher_course", back_populates="courses"
+        "TeacherDB", secondary="teacher_course", back_populates="class_courses"
     )
     classes = db.relationship(
-        "SchoolClassDB", secondary="school_class_course", back_populates="courses"
+        "SchoolClassDB", secondary="school_class_course", back_populates="class_courses"
     )
     
