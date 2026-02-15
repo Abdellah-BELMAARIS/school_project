@@ -1,14 +1,13 @@
-from .students_courses import student_course
-from .teachers_courses import teacher_course
+from .groups_teacher import groups_teacher
 from .school_class_course import school_class_course
-from .groups_teacher import group_teacher
-from .students_groupes import student_group
-
+from .students_course import students_course
+from .students_groupes import students_groupes
+from .teachers_course import teachers_courses
 
 __all__ = [
-    "student_course",
-    "teacher_course",
+    "groups_teacher",
     "school_class_course",
-    "group_teacher",
-    "student_group"
+    "students_course",
+    "students_groupes",
+    "teachers_courses",
 ]

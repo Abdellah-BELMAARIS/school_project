@@ -8,11 +8,23 @@ student1 = StudentDB(
     last_name="BELMAARIS",
     birthday=date(2010, 7, 19),
     email="obaid@gmail.com",
-    parent_id=1,
-    school_class_id=1,
-    student_id="S123456",
-
 )
 
-db.session.add(student1)
-db.session.commit()
+student2 = StudentDB(
+    first_name="Sara",
+    last_name="BELMAARIS",
+    birthday=date(2016, 3, 6),
+    email="sara@gmail.com",
+)
+
+student3 = StudentDB(
+    first_name="Omar",
+    last_name="AlAOUI",
+    birthday=date(2005, 11, 22),
+    email="omar@gmail.com",
+)
+
+# db.session.add(student1)
+# db.session.add(student2)
+# db.session.add(student3)
+# db.session.commit()

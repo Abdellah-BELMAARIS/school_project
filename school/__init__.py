@@ -3,6 +3,7 @@ from flask_alembic import Alembic
 from flask import Flask
 from os import path
 
+
 db: SQLAlchemy = SQLAlchemy()
 alembic: Alembic = Alembic()
 
