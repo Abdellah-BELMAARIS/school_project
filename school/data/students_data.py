@@ -24,7 +24,3 @@ student3 = StudentDB(
     email="omar@gmail.com",
 )
 
-# db.session.add(student1)
-# db.session.add(student2)
-# db.session.add(student3)
-# db.session.commit()
