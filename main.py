@@ -16,9 +16,8 @@ from school.models.associations import (
     students_groupes,
     groups_course,
     teachers_course,
-    groups_teacher    
+    groups_teacher,
 )
-
 
 from school.data import (
     primary_class,
