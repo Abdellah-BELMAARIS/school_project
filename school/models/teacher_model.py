@@ -28,8 +28,8 @@ class TeacherDB(db.Model):
 
     school_class = db.relationship("SchoolClassDB", back_populates="teachers")
     groups = db.relationship(
-        "GroupDB", secondary="groups_teacher", back_populates="teachers"
+        "GroupDB", secondary="groups_teachers", back_populates="teachers"
     )
     class_courses = db.relationship(
-        "CourseDB", secondary="teachers_course", back_populates="teachers"
+        "CourseDB", secondary="teachers_courses", back_populates="teachers"
     )

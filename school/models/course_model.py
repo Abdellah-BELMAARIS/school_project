@@ -26,15 +26,15 @@ class CourseDB(db.Model):
     )
 
     students = db.relationship(
-        "StudentDB", secondary="students_course", back_populates="class_courses"
+        "StudentDB", secondary="students_courses", back_populates="class_courses"
     )
     teachers = db.relationship(
-        "TeacherDB", secondary="teachers_course", back_populates="class_courses"
+        "TeacherDB", secondary="teachers_courses", back_populates="class_courses"
     )
     classes = db.relationship(
-        "SchoolClassDB", secondary="school_class_course", back_populates="class_courses"
+        "SchoolClassDB", secondary="school_class_courses", back_populates="class_courses"
     )
     groups = db.relationship(
-        "GroupDB", secondary="groups_course", back_populates="courses"
+        "GroupDB", secondary="groups_courses", back_populates="courses"
     )
     
