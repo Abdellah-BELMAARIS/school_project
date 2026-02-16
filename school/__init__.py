@@ -39,6 +39,7 @@ def create_app():
         students_course,
         students_groupes,
         teachers_course,
+        groups_course,
     )
 
     # with app.app_context():

@@ -34,4 +34,7 @@ class CourseDB(db.Model):
     classes = db.relationship(
         "SchoolClassDB", secondary="school_class_course", back_populates="class_courses"
     )
+    groups = db.relationship(
+        "GroupDB", secondary="groups_course", back_populates="courses"
+    )
     

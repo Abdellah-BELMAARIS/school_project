@@ -16,6 +16,7 @@ from school.models.associations import (
     school_class_course,
     students_groupes,
     teachers_course,
+    groups_course,
 )
 
 

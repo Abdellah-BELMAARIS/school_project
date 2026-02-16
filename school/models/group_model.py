@@ -29,3 +29,6 @@ class GroupDB(db.Model):
     students = db.relationship(
         "StudentDB", secondary="students_groupes", back_populates="groups"
     )
+    courses = db.relationship(
+        "CourseDB", secondary="groups_course", back_populates="groups"
+    )
