@@ -28,7 +28,6 @@ from school.models.associations import (
 )
 
 
-
 app = create_app()
 
 
