@@ -1,4 +1,14 @@
 from school import create_app, db
+from school.models import (
+    StudentDB,
+    ParentDB,
+    TeacherDB,
+    CourseDB,
+    GroupDB,
+    PrimaryClassDB,
+    CollegeClassDB,
+    HighSchoolClassDB,
+)
 from school.models.associations import (
     groups_teacher,
     school_class_course,

@@ -33,6 +33,13 @@ def create_app():
         CollegeClassDB,
         HighSchoolClassDB,
     )
+    from models.associations import (
+        groups_teacher,
+        school_class_course,
+        students_course,
+        students_groupes,
+        teachers_course,
+    )
 
     # with app.app_context():
     #     db.create_all()
