@@ -1,4 +1,4 @@
-from school.models.class_model import PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
+from school.models.school_class_model import PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
 
 
 primary_class = PrimaryClassDB(
@@ -6,7 +6,7 @@ primary_class = PrimaryClassDB(
     # grade2="second grade",
     # grade3="third grade",
     # grade4="fourth grade",
-    # grade5="fifth grade",
+    # grade5="fifth grade",s
     # grade6="sixth grade",
 )
 
