@@ -1,9 +1,9 @@
-from .groups_teacher import groups_teacher
-from .school_class_course import school_class_course
-from .students_course import students_course
-from .students_groupes import students_groupes
-from .teachers_course import teachers_course
-from .groups_course import groups_course
+from .groups_teachers import groups_teacher
+from .school_class_courses import school_class_course
+from .students_courses import students_course
+from .students_groupe import students_groupes
+from .teachers_courses import teachers_course
+from .groups_courses import groups_course
 
 __all__ = [
     "groups_teacher",
