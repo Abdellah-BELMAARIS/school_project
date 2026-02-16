@@ -9,12 +9,16 @@ from school.models import (
     CollegeClassDB,
     HighSchoolClassDB,
 )
+
 from school.models.associations import (
     groups_teacher,
+    students_course,
     school_class_course,
     students_groupes,
     teachers_course,
 )
+
+
 from school.data import (
     primary_class,
     college_class,
