@@ -1,6 +1,6 @@
 from school import db
 
-meta = db.MetaData()    
+meta = db.MetaData()
 
 groups_teacher = db.Table(
     "groups_teacher",
