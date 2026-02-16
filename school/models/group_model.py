@@ -1,6 +1,5 @@
 from datetime import datetime, timezone
 from school import db
-from school.models.associations import groups_teacher, students_groupes  
 
 
 class GroupDB(db.Model):

@@ -1,6 +1,5 @@
 from datetime import datetime, timezone
 from school import db
-from school.models.associations import groups_teacher, teachers_course
 
 class TeacherDB(db.Model):
     __tablename__ = "teachers"
