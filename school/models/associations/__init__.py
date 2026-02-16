@@ -1,15 +1,15 @@
-from .groups_teachers import groups_teachers
-from .school_class_courses import school_class_courses
-from .students_courses import students_courses
-from .students_groupe import students_groupe
-from .teachers_courses import teachers_courses
-from .groups_courses import groups_courses
+from .groups_and_teachers import groups_teacher
+from .school_and_class_courses import school_class_course
+from .students_and_courses import students_course
+from .students_and_groupe import students_groupes
+from .teachers_and_courses import teachers_course
+from .groups_and_courses import groups_course
 
 __all__ = [
-    "groups_teachers",
-    "school_class_courses",
-    "students_courses",
-    "students_groupe",
-    "teachers_courses",
-    "groups_courses",
+    "groups_teacher",
+    "school_class_course",
+    "students_course",
+    "students_groupes",
+    "teachers_course",
+    "groups_course",
 ]

@@ -14,6 +14,9 @@ def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "hjshjhdjah kjshkjdhjs"
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
+    
+    # ADD THIS LINE TO ENABLE BATCH MODE FOR SQLITE:
+    app.config["ALEMBIC_CONTEXT"] = {"render_as_batch": True}
 
     db.init_app(app)
     alembic.init_app(app)
@@ -33,13 +36,13 @@ def create_app():
         CollegeClassDB,
         HighSchoolClassDB,
     )
-    from models.associations import (
+    from .models import (
+        groups_course,
         groups_teacher,
         school_class_course,
         students_course,
         students_groupes,
         teachers_course,
-        groups_course,
     )
 
     # with app.app_context():
