@@ -11,12 +11,11 @@ from school.models import (
 )
 
 from school.models.associations import (
-    groups_teacher,
-    students_course,
+    student_parent,
+    teacher_course,
     school_class_course,
-    students_groupes,
-    teachers_course,
-    groups_course,
+    school_class_group,
+    student_group,
 )
 
 
