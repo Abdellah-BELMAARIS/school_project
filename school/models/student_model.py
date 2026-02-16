@@ -1,6 +1,7 @@
 from sqlalchemy import ForeignKey
 from school import db
 from datetime import datetime, timezone
+from school.models.associations import students_course, groups_teacher
 
 
 class StudentDB(db.Model):

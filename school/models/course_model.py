@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from school import db
+from school.models.associations import school_class_course, students_course, teachers_course
 
 
 class CourseDB(db.Model):
