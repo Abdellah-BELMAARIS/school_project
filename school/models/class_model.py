@@ -44,7 +44,6 @@ class CollegeClassDB(SchoolClassDB):
 
     id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
 
-
     __mapper_args__ = {
         "polymorphic_identity": "college",
     }
