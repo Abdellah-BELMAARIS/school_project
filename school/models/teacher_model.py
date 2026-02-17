@@ -9,7 +9,6 @@ class TeacherDB(db.Model):
     last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
 
-
     created_at = db.Column(
         db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )
@@ -19,12 +18,13 @@ class TeacherDB(db.Model):
         onupdate=lambda: datetime.now(timezone.utc),
     )
 
-
     school_class_id = db.Column(
         db.Integer, db.ForeignKey("school_classes.id"), nullable=False
     )
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=True)
     course_id = db.Column(db.Integer, db.ForeignKey("courses.id"), nullable=False)
+
+    course = db.relationship("CourseDB", foreign_keys=[course_id])
 
     school_class = db.relationship("SchoolClassDB", back_populates="teachers")
     groups = db.relationship(

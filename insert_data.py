@@ -67,4 +67,4 @@ def insert_database():
 
     db.session.commit()
 
-    print("Database seeded successfully!")
+    print("Database created successfully!")

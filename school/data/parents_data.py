@@ -1,4 +1,4 @@
-from models.parent_model import ParentDB
+from school.models import ParentDB
 
 parent1 = ParentDB(
     first_name="Abdelhamid",

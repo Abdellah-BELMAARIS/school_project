@@ -9,8 +9,6 @@ class CourseDB(db.Model):
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text, nullable=True)
 
-
-
     created_at = db.Column(
         db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )
@@ -20,10 +18,11 @@ class CourseDB(db.Model):
         onupdate=lambda: datetime.now(timezone.utc),
     )
     
-
     school_class_id = db.Column(
         db.Integer, db.ForeignKey("school_classes.id"), nullable=False
     )
+
+    school_class = db.relationship("SchoolClassDB", foreign_keys=[school_class_id])
 
     students = db.relationship(
         "StudentDB", secondary="students_course", back_populates="class_courses"
@@ -37,4 +36,3 @@ class CourseDB(db.Model):
     groups = db.relationship(
         "GroupDB", secondary="groups_course", back_populates="courses"
     )
-    
