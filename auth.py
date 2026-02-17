@@ -8,7 +8,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('dashboard_page'))
+        return redirect(url_for('about_view.dashboard_page'))
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -17,7 +17,7 @@ def login():
         if user and user.check_password(password):
             login_user(user)
             flash('Logged in successfully.', 'success')
-            return redirect(url_for('dashboard_page'))
+            return redirect(url_for('about_view.dashboard_page'))
         else:
             flash('Invalid username or password.', 'danger')
     return render_template('login.html')
@@ -25,7 +25,7 @@ def login():
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('dashboard_page'))
+        return redirect(url_for('about_view.dashboard_page'))
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -51,7 +51,7 @@ def register():
         db.session.commit()
         login_user(user)
         flash('Account created!', 'success')
-        return redirect(url_for('dashboard_page'))
+        return redirect(url_for('about_view.dashboard_page'))
 
     return render_template('register.html')
 
@@ -60,4 +60,4 @@ def register():
 def logout():
     logout_user()
     flash('You have been logged out.', 'info')
-    return redirect(url_for('home_page'))
+    return redirect(url_for('home_view.home_page'))
