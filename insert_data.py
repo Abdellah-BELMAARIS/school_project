@@ -68,3 +68,11 @@ def insert_database():
     db.session.commit()
 
     print("Database created successfully!")
+
+if __name__ == "__main__":
+    from school import create_app
+    
+    app = create_app()
+    with app.app_context():
+        print("Inserting data...")
+        insert_database()
