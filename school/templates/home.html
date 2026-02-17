@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
-{% block title %}
-    Welcome to Jim Shaped Coding Market
-{% endblock %}
 {% block content %}
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Jim Shaped Coding Market</h1>
-            <p class="lead font-weight-normal">Start purchasing products by clicking the link below</p>
-            <a class="btn btn-primary" href="{{ url_for('market_page') }}">Get Started</a>
+
+<div class="text-center py-5">
+    <h1 class="display-4 mb-4" style="color: #4dabf7;">Dev Pulse </h1>
+    <p class="lead mb-4">Start purchasing professional training courses by clicking the link below</p>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="market-card p-5">
+                <h3 class="mb-4">Get Started</h3>
+                <p class="mb-4">Browse our professional training services and enroll in courses taught by industry experts.</p>
+                <a class="btn btn-market btn-lg" href="{{ url_for('services_page') }}" role="button">
+                    View Available Services
+                </a>
+            </div>
         </div>
-        <div class="product-device box-shadow d-none d-md-block"></div>
-        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
     </div>
+</div>
+
 {% endblock %}

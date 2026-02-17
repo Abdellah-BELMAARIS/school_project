@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
-{% block title %}
-    Register Page
-{% endblock %}
-
 {% block content %}
-<body class="text-center">
-    <div class="container">
-        <form method="POST" class="form-register" style="color:white">
-            {{ form.hidden_tag() }}
-            <img class="mb-4" src="https://res.cloudinary.com/jimshapedcoding/image/upload/v1597332609/android-icon-192x192_ove2a7.png" alt="">
-            <h1 class="h3 mb-3 font-weight-normal">
-                Please Create your Account
-            </h1>
-            <br>
-            {{ form.username.label() }}
-            {{ form.username(class="form-control", placeholder="User Name") }}
 
-            {{ form.email_address.label() }}
-            {{ form.email_address(class="form-control", placeholder="Email Address") }}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="market-card p-5" style="width: 450px;">
 
-            {{ form.password1.label() }}
-            {{ form.password1(class="form-control", placeholder="Password") }}
+        <h2 class="text-center mb-4" style="color: #4dabf7;">Create Account</h2>
 
-            {{ form.password2.label() }}
-            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+        <form method="POST">
 
-            <br>
-
-            <div class="checkbox mb-3">
-               <h6>Already have an account?</h6>
-               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input name="username" type="text" class="form-control bg-dark text-light" required>
             </div>
 
-            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input name="email" type="email" class="form-control bg-dark text-light" required>
+            </div>
 
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input name="password1" type="password" class="form-control bg-dark text-light" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input name="password2" type="password" class="form-control bg-dark text-light" required>
+            </div>
+
+            <button type="submit" class="btn btn-market w-100 mt-3">Create Account</button>
+
+            <p class="text-center mt-3">
+                <small>Already have an account?
+                    <a href="{{ url_for('login_page') }}" style="color: #4dabf7;">Login</a>
+                </small>
+            </p>
         </form>
     </div>
-</body>
+</div>
+
 {% endblock %}
