@@ -1,7 +1,5 @@
 from datetime import date
-from school import db
-from models.student_model import StudentDB
-
+from school.models import StudentDB
 
 student1 = StudentDB(
     first_name="Abdellah",
@@ -23,4 +21,3 @@ student3 = StudentDB(
     birthday=date(2005, 11, 22),
     email="omar@gmail.com",
 )
-

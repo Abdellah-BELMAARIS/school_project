@@ -1,4 +1,4 @@
-from models.course_model import CourseDB
+from school.models import CourseDB
 
 math = CourseDB(
     title="Mathematics",

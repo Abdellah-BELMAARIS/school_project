@@ -1,23 +1,30 @@
-from school.models.school_class_model import PrimaryClassDB, CollegeClassDB, HighSchoolClassDB
+from school.models import PrimaryClassDB
 
 
-primary_class = PrimaryClassDB(
-    grade1="first grade",
-    # grade2="second grade",
-    # grade3="third grade",
-    # grade4="fourth grade",
-    # grade5="fifth grade",s
-    # grade6="sixth grade",
+p_grade_1 = PrimaryClassDB(
+    grade="first grade",
+    type="primary",
+)
+p_grade_2 = PrimaryClassDB(
+    grade="second grade",
+    type="primary",
+)
+p_grade_3 = PrimaryClassDB(
+    grade="third grade",
+    type="primary",
+)
+p_grade_4 = PrimaryClassDB(
+    grade="fourth grade",
+    type="primary",
+)
+p_grade_5 = PrimaryClassDB(
+    grade="fifth grade",
+    type="primary",
+)
+p_grade_6 = PrimaryClassDB(
+    grade="sixth grade",
+    type="primary",
 )
 
-college_class = CollegeClassDB(
-    grade1="first grade",
-#     grade2="second grade",
-#     grade3="third grade",
-)
 
-high_school_class = HighSchoolClassDB(
-    grade1="first grade",
-#     grade2="second grade",
-#     grade3="third grade",
-)
+

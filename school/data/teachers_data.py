@@ -1,4 +1,4 @@
-from models.teacher_model import TeacherDB
+from school.models import TeacherDB
 
 teacher1 = TeacherDB(
     first_name="Youssef",
