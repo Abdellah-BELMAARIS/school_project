@@ -6,4 +6,4 @@ bp_home = Blueprint("home_view", __name__, url_prefix="/")
 @bp_home.route("/")
 @bp_home.route("/home")
 def home_page():
-    return render_template("about.html")
+    return render_template("home.html")
