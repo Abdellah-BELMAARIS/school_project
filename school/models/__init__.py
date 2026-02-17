@@ -4,6 +4,7 @@ from .student_model import StudentDB
 from .teacher_model import TeacherDB
 from .parent_model import ParentDB
 from .group_model import GroupDB
+from .user_model import User
 from .associations import (
     groups_course,
     groups_teacher,
@@ -22,6 +23,7 @@ __all__ = [
     "TeacherDB",
     "ParentDB",
     "GroupDB",
+    "User",
     "groups_course",
     "groups_teacher",
     "school_class_course",
