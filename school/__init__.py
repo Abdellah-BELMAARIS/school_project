@@ -26,7 +26,7 @@ def create_app():
     app.register_blueprint(bp_home)
     app.register_blueprint(bp_about)
 
-    from auth import auth
+    from school.views.auth_view import auth
     app.register_blueprint(auth)
 
     from .models import (
