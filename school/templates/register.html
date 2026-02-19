@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="market-card p-5" style="width: 450px;">
 
-        <h2 class="text-center mb-4" style="color: #4dabf7;">Student Registration</h2>
+        <h2 class="text-center mb-4" style="color: #4dabf7;">Create Account</h2>
 
         <form method="POST">
 
@@ -16,6 +16,15 @@
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input name="email" type="email" class="form-control bg-dark text-light" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Role</label>
+                <select name="role" class="form-control bg-dark text-light" required>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="director">Director</option>
+                </select>
             </div>
 
             <div class="mb-3">

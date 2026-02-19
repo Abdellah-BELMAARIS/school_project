@@ -31,7 +31,7 @@ class SchoolClassDB(db.Model):
 class PrimaryClassDB(SchoolClassDB):
     __tablename__ = "primary_classes"
 
-    id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey("school_classes.id"), primary_key=True)
 
     __mapper_args__ = {
         "polymorphic_identity": "primary",
@@ -41,7 +41,7 @@ class PrimaryClassDB(SchoolClassDB):
 class CollegeClassDB(SchoolClassDB):
     __tablename__ = "college_classes"
 
-    id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey("school_classes.id"), primary_key=True)
 
     __mapper_args__ = {
         "polymorphic_identity": "college",
@@ -51,7 +51,7 @@ class CollegeClassDB(SchoolClassDB):
 class HighSchoolClassDB(SchoolClassDB):
     __tablename__ = "high_school_classes"
 
-    id = db.Column(db.String, db.ForeignKey("school_classes.id"), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey("school_classes.id"), primary_key=True)
 
     __mapper_args__ = {
         "polymorphic_identity": "high_school",

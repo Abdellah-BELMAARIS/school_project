@@ -1,11 +1,7 @@
 from school import db
 from school.data.classes_data import (
-    p_grade_1,
-    p_grade_2,
-    p_grade_3,
-    p_grade_4,
-    p_grade_5,
-    p_grade_6,
+    p_grade_1, p_grade_2, p_grade_3, p_grade_4, p_grade_5, p_grade_6,
+    c_grade_1, h_grade_1,
 )
 from school.data.courses_data import math, arabic, history_geography
 from school.data.groups_data import p_groups, c_groups, h_groups
@@ -18,11 +14,16 @@ def insert_database():
     db.session.add_all([parent1, parent2, parent3])
 
     db.session.add_all(
-        [p_grade_1, p_grade_2, p_grade_3, p_grade_4, p_grade_5, p_grade_6]
+        [p_grade_1, p_grade_2, p_grade_3, p_grade_4, p_grade_5, p_grade_6,
+         c_grade_1, h_grade_1]
     )
 
-    for group in p_groups + c_groups + h_groups:
+    for group in p_groups:
         group.school_class = p_grade_1
+    for group in c_groups:
+        group.school_class = c_grade_1
+    for group in h_groups:
+        group.school_class = h_grade_1
 
     db.session.add_all(p_groups + c_groups + h_groups)
 
@@ -43,6 +44,7 @@ def insert_database():
 
     db.session.add_all([student1, student2, student3])
 
+    
     teacher1.school_class = p_grade_1
     teacher1.course = math
     teacher1.groups.append(p_groups[0])
@@ -71,7 +73,7 @@ def insert_database():
 
 if __name__ == "__main__":
     from school import create_app
-    
+
     app = create_app()
     with app.app_context():
         print("Inserting data...")

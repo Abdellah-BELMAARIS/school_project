@@ -10,26 +10,139 @@
 
         <div class="row mt-4">
 
-            <div class="col-md-4 mb-3">
-                <div class="market-card p-4 text-center">
-                    <h4 style="color:#4dabf7;">Student Profile</h4>
-                    <p>Email: <strong>{{ current_user.email }}</strong></p>
+            <!-- Student Dashboard -->
+            {% if current_user.role == 'student' %}
+                {% if student %}
+                <div class="col-md-4 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Student Profile</h4>
+                        <p>Name: <strong>{{ student.first_name }} {{ student.last_name }}</strong></p>
+                        <p>Email: <strong>{{ student.email }}</strong></p>
+                        <p>Grade: <span class="badge bg-info">{{ grade }}</span></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4 mb-3">
-                <div class="market-card p-4 text-center">
-                    <h4 style="color:#4dabf7;">My Subjects</h4>
-                    <p>Coming soon...</p>
+                <div class="col-md-4 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">My Subjects</h4>
+                        {% if courses %}
+                            <ul class="list-unstyled">
+                            {% for course in courses %}
+                                <li>{{ course.title }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No subjects assigned.</p>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4 mb-3">
-                <div class="market-card p-4 text-center">
-                    <h4 style="color:#4dabf7;">School Settings</h4>
-                    <p>Account options coming soon…</p>
+                <div class="col-md-4 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">School Settings</h4>
+                        <p>Account options coming soon…</p>
+                    </div>
                 </div>
-            </div>
+                {% else %}
+                <div class="col-md-12">
+                    <div class="alert alert-warning">
+                        Your student profile is not fully set up. Please contact the director.
+                    </div>
+                </div>
+                {% endif %}
+
+            <!-- Teacher Dashboard -->
+            {% elif current_user.role == 'teacher' %}
+                {% if teacher %}
+                <div class="col-md-4 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Teacher Profile</h4>
+                        <p>Name: <strong>{{ teacher.first_name }} {{ teacher.last_name }}</strong></p>
+                        <p>Email: <strong>{{ teacher.email }}</strong></p>
+                        <p>Grade: <span class="badge bg-success">{{ grade }}</span></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">My Classes</h4>
+                        {% if groups %}
+                            <ul class="list-unstyled">
+                            {% for group in groups %}
+                                <li>{{ group.name }} ({{ group.ref }})</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No groups assigned.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Courses</h4>
+                        {% if courses %}
+                            <ul class="list-unstyled">
+                            {% for course in courses %}
+                                <li>{{ course.title }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No courses assigned.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-md-12">
+                    <div class="alert alert-warning">
+                        Your teacher profile is not fully set up. Please contact the director.
+                    </div>
+                </div>
+                {% endif %}
+
+            <!-- Director Dashboard -->
+            {% elif current_user.role == 'director' %}
+                <div class="col-md-3 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Students</h4>
+                        <p class="display-6">{{ total_students }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Teachers</h4>
+                        <p class="display-6">{{ total_teachers }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Courses</h4>
+                        <p class="display-6">{{ total_courses }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="market-card p-4 text-center">
+                        <h4 style="color:#4dabf7;">Classes</h4>
+                        <p class="display-6">{{ total_classes }}</p>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <div class="market-card p-4">
+                        <h4 style="color:#4dabf7;">Quick Actions</h4>
+                        <p>Manage users, view reports, and configure school settings.</p>
+                        <a href="#" class="btn btn-market">Manage Users</a>
+                        <a href="#" class="btn btn-market">View Reports</a>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="col-md-12">
+                    <div class="alert alert-warning">
+                        Your role ({{ current_user.role }}) is not recognized. Please contact support.
+                    </div>
+                </div>
+            {% endif %}
 
         </div>
 

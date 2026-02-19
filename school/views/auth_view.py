@@ -13,14 +13,18 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+
         user = User.query.filter_by(username=username).first()
+
         if user and user.check_password(password):
             login_user(user)
             flash('Logged in successfully.', 'success')
             return redirect(url_for('about_view.dashboard_page'))
         else:
             flash('Invalid username or password.', 'danger')
+
     return render_template('login.html')
+
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
@@ -32,6 +36,11 @@ def register():
         email = request.form.get('email')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        role = request.form.get('role')
+
+        if role not in ['student', 'teacher', 'director']:
+            flash('Invalid role selected.', 'danger')
+            return redirect(url_for('auth.register'))
 
         if password1 != password2:
             flash('Passwords do not match.', 'danger')
@@ -45,15 +54,18 @@ def register():
             flash('Email already registered.', 'danger')
             return redirect(url_for('auth.register'))
 
-        user = User(username=username, email=email)
-        user.set_password(password1)
-        db.session.add(user)
+        new_user = User(username=username, email=email, role=role)
+        new_user.set_password(password1)
+
+        db.session.add(new_user)
         db.session.commit()
-        login_user(user)
-        flash('Account created!', 'success')
+
+        login_user(new_user)
+        flash('Account created! You are now logged in.', 'success')
         return redirect(url_for('about_view.dashboard_page'))
 
     return render_template('register.html')
+
 
 @auth.route('/logout')
 @login_required

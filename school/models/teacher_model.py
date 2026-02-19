@@ -21,7 +21,6 @@ class TeacherDB(db.Model):
     school_class_id = db.Column(
         db.Integer, db.ForeignKey("school_classes.id"), nullable=False
     )
-    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=True)
     course_id = db.Column(db.Integer, db.ForeignKey("courses.id"), nullable=False)
 
     course = db.relationship("CourseDB", foreign_keys=[course_id])
